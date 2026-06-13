@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Ncdevision — Build smarter, faster, and more beautifully with our cutting-edge platform." />
+  <title>Ncdevision — Build the Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Three.js -->
+  <script src="https://unpkg.com/three@0.158.0/build/three.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Noise + Grid overlays -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="logo-link">
+        <span class="logo-gem">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path d="M14 2L25 8.5V19.5L14 26L3 19.5V8.5L14 2Z" fill="url(#lg1)" />
+            <path d="M14 2L25 8.5V19.5L14 26L3 19.5V8.5L14 2Z" stroke="url(#ls1)" stroke-width=".8" fill="none" />
+            <defs>
+              <linearGradient id="lg1" x1="3" y1="2" x2="25" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a855f7" />
+                <stop offset="1" stop-color="#06b6d4" />
+              </linearGradient>
+              <linearGradient id="ls1" x1="3" y1="2" x2="25" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#c084fc" />
+                <stop offset="1" stop-color="#67e8f9" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+        <span class="logo-text">Ncdevision</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
+        <a href="#home" class="nav-link active" id="nav-home">Home</a>
+        <a href="#about" class="nav-link" id="nav-about">About</a>
+        <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+        <a href="#contact" class="nav-cta" id="nav-cta-btn">Get Started →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="blob blob-1" aria-hidden="true"></div>
+      <div class="blob blob-2" aria-hidden="true"></div>
+      <div class="blob blob-3" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+
+        <!-- LEFT: text -->
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <span class="hero-badge">
+              <span class="badge-dot"></span>
+              Now in Public Beta
+            </span>
+          </div>
+          <h1 class="hero-heading">
+            Build the Future,<br />
+            <span class="gradient-text">One Line at a Time</span>
+          </h1>
+          <p class="hero-subtext">
+            Ncdevision supercharges your workflow with intelligent tools,
+            beautiful design systems, and a developer experience that feels
+            like pure magic.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary" id="hero-cta">
+              <span>Get Started Free</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+            <a href="#about" class="btn btn-outline" id="hero-learn">See how it works</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-avatars">
+              <img src="https://i.pravatar.cc/32?img=1" alt="" class="avatar" width="32" height="32" />
+              <img src="https://i.pravatar.cc/32?img=5" alt="" class="avatar" width="32" height="32" />
+              <img src="https://i.pravatar.cc/32?img=12" alt="" class="avatar" width="32" height="32" />
+              <img src="https://i.pravatar.cc/32?img=20" alt="" class="avatar" width="32" height="32" />
+            </div>
+            <p class="trust-text"><strong>2,400+</strong> developers already on board</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: 3D canvas -->
+        <div class="hero-visual" id="hero-visual-wrap" aria-label="3D interactive visualization">
+          <canvas id="hero-canvas"></canvas>
+
+          <!-- Floating stat badges -->
+          <div class="float-badge badge-top">
+            <span class="fb-icon">⚡</span>
+            <div>
+              <p class="fb-val">0.3s</p>
+              <p class="fb-label">Launch time</p>
+            </div>
+          </div>
+          <div class="float-badge badge-bot">
+            <span class="fb-icon">🔒</span>
+            <div>
+              <p class="fb-val">99.99%</p>
+              <p class="fb-label">Uptime SLA</p>
+            </div>
+          </div>
+
+          <!-- Drag hint -->
+          <p class="drag-hint" id="drag-hint">Move mouse to interact</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== STATS STRIP ===== -->
+    <section class="stats-strip" id="stats" aria-label="Key metrics">
+      <div class="stats-inner">
+        <div class="stat-item">
+          <span class="stat-num">10<span class="stat-sup">k+</span></span>
+          <span class="stat-label">Active Projects</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">2.4<span class="stat-sup">k</span></span>
+          <span class="stat-label">Developers</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">99.9<span class="stat-sup">%</span></span>
+          <span class="stat-label">Uptime</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat-item">
+          <span class="stat-num">4.9<span class="stat-sup">★</span></span>
+          <span class="stat-label">Avg Rating</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features" id="about">
+      <div class="section-wrap">
+        <div class="section-header">
+          <span class="section-label">Why Ncdevision?</span>
+          <h2 class="section-title">Everything You Need<br />to Ship Faster</h2>
+          <p class="section-sub">
+            A complete toolkit for modern developers who demand performance, beauty, and rock-solid reliability.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card" id="feature-1">
+            <div class="card-glow" style="--glow:#a855f7"></div>
+            <div class="card-icon" style="--ic:#a855f7;--ib:rgba(168,85,247,.15)">⚡</div>
+            <h3 class="card-title">Blazing Fast</h3>
+            <p class="card-desc">Built on a zero-latency core, our engine delivers sub-millisecond response times so
+              every interaction feels instant and alive.</p>
+            <div class="card-footer">
+              <a href="#" class="card-link">Explore performance →</a>
+              <span class="card-tag">Core Engine</span>
+            </div>
+          </div>
+
+          <div class="feature-card featured" id="feature-2">
+            <div class="card-glow" style="--glow:#06b6d4"></div>
+            <div class="popular-pill">⭐ Most Popular</div>
+            <div class="card-icon" style="--ic:#34d399;--ib:rgba(52,211,153,.15)">🎨</div>
+            <h3 class="card-title">Beautiful by Default</h3>
+            <p class="card-desc">Pixel-perfect UI components that adapt to any brand — dark mode, micro-animations, and
+              accessibility baked right in.</p>
+            <div class="card-footer">
+              <a href="#" class="card-link">Browse components →</a>
+              <span class="card-tag">Design System</span>
+            </div>
+          </div>
+
+          <div class="feature-card" id="feature-3">
+            <div class="card-glow" style="--glow:#06b6d4"></div>
+            <div class="card-icon" style="--ic:#60a5fa;--ib:rgba(96,165,250,.15)">🔒</div>
+            <h3 class="card-title">Secure &amp; Reliable</h3>
+            <p class="card-desc">Enterprise-grade security with end-to-end encryption, SOC 2 compliance, and 99.99%
+              uptime guaranteed by SLA.</p>
+            <div class="card-footer">
+              <a href="#" class="card-link">Security docs →</a>
+              <span class="card-tag">Enterprise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="perks-row">
+          <div class="perk"><span class="perk-icon">🚀</span> One-click deploy</div>
+          <div class="perk"><span class="perk-icon">🔄</span> CI/CD integrations</div>
+          <div class="perk"><span class="perk-icon">🌍</span> Global CDN</div>
+          <div class="perk"><span class="perk-icon">📊</span> Real-time analytics</div>
+          <div class="perk"><span class="perk-icon">🤖</span> AI Copilot</div>
+          <div class="perk"><span class="perk-icon">💬</span> 24/7 Support</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section" id="contact">
+      <div class="cta-blob cta-blob-l" aria-hidden="true"></div>
+      <div class="cta-blob cta-blob-r" aria-hidden="true"></div>
+      <div class="cta-box">
+        <span class="cta-eyebrow">Get Early Access</span>
+        <h2 class="cta-heading">Ready to Build Something<br /><span class="gradient-text">Amazing?</span></h2>
+        <p class="cta-sub">Join thousands of developers already shipping faster with Ncdevision.</p>
+        <form class="cta-form" id="contact-form" novalidate>
+          <div class="input-wrap">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="#565970"
+                stroke-width="1.5" />
+              <polyline points="22,6 12,13 2,6" stroke="#565970" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <input type="email" id="email-input" class="cta-input" placeholder="Enter your email address"
+              aria-label="Email address" required />
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" id="form-submit">
+            <span>Get Early Access</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+        <p class="cta-note">🔒 No spam, ever. Unsubscribe any time.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-text">⬡ Ncdevision</span>
+        <p class="footer-tagline">Building the future, one line at a time.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#home" id="footer-home">Home</a>
+        <a href="#about" id="footer-about">About</a>
+        <a href="#contact" id="footer-contact">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 Ncdevision. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       THREE.JS — 3D CRYSTAL HERO SCENE
+  ================================================================ -->
+  <script>
+    (function () {
+      'use strict';
+
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas || typeof THREE === 'undefined') return;
+
+      /* ── Renderer ── */
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.shadowMap.enabled = false;
+
+      /* ── Scene / Camera ── */
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(48, 1, 0.1, 100);
+      camera.position.set(0, 0, 5.5);
+
+      /* ── Resize ── */
+      function onResize() {
+        const wrap = document.getElementById('hero-visual-wrap');
+        const w = wrap.clientWidth;
+        const h = wrap.clientHeight || w;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+      onResize();
+      window.addEventListener('resize', onResize, { passive: true });
+
+      /* ── Lights ── */
+      scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+      const pL1 = new THREE.PointLight(0xa855f7, 5, 14);
+      pL1.position.set(-2.5, 3, 2);
+      scene.add(pL1);
+
+      const pL2 = new THREE.PointLight(0x06b6d4, 5, 14);
+      pL2.position.set(3, -2.5, 1.5);
+      scene.add(pL2);
+
+      const pL3 = new THREE.PointLight(0x10b981, 2, 8);
+      pL3.position.set(0, -3, -2);
+      scene.add(pL3);
+
+      /* ─────────────────────────────────────────
+         HOLOGRAPHIC SHADER MATERIAL
+      ───────────────────────────────────────── */
+      const holoMat = new THREE.ShaderMaterial({
+        uniforms: {
+          uTime: { value: 0 },
+          uColA: { value: new THREE.Color(0xa855f7) },
+          uColB: { value: new THREE.Color(0x06b6d4) },
+          uColC: { value: new THREE.Color(0x10b981) },
+        },
+        vertexShader: /* glsl */`
+        varying vec3 vNormal;
+        varying vec3 vWorldPos;
+        varying float vElev;
+
+        void main() {
+          vec4 world = modelMatrix * vec4(position, 1.0);
+          vWorldPos = world.xyz;
+          vNormal   = normalize(normalMatrix * normal);
+          vElev     = position.y;
+          gl_Position = projectionMatrix * viewMatrix * world;
+        }
+      `,
+        fragmentShader: /* glsl */`
+        uniform float uTime;
+        uniform vec3  uColA;
+        uniform vec3  uColB;
+        uniform vec3  uColC;
+        varying vec3  vNormal;
+        varying vec3  vWorldPos;
+        varying float vElev;
+
+        void main() {
+          /* Fresnel rim */
+          vec3  viewDir = normalize(cameraPosition - vWorldPos);
+          float NdotV   = max(dot(vNormal, viewDir), 0.0);
+          float fresnel = pow(1.0 - NdotV, 2.2);
+
+          /* Animated colour blend */
+          float t = clamp(vElev * 0.5 + 0.5
+                    + sin(uTime * 0.5 + vWorldPos.x * 2.0) * 0.12, 0.0, 1.0);
+          vec3 col = mix(uColA, uColB, t);
+          col = mix(col, uColC, sin(uTime * 0.35 + vWorldPos.z * 1.5) * 0.3 + 0.25);
+
+          /* Scanline shimmer */
+          float shimmer = sin(vElev * 9.0 + uTime * 2.0) * 0.5 + 0.5;
+          col += shimmer * 0.18;
+
+          /* White fresnel highlight */
+          col = mix(col, vec3(1.0), fresnel * 0.65);
+
+          float alpha = 0.12 + fresnel * 0.78;
+          gl_FragColor = vec4(col, alpha);
+        }
+      `,
+        transparent: true,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      });
+
+      /* ── Main Crystal Gem ── */
+      const gemGeo = new THREE.IcosahedronGeometry(1.35, 1);
+      const gem = new THREE.Mesh(gemGeo, holoMat);
+      scene.add(gem);
+
+      /* Edge wireframe over gem */
+      const edgesGeo = new THREE.EdgesGeometry(gemGeo);
+      const edgeMat = new THREE.LineBasicMaterial({
+        color: 0xc084fc, transparent: true, opacity: 0.55,
+      });
+      gem.add(new THREE.LineSegments(edgesGeo, edgeMat));
+
+      /* Glowing inner core */
+      const coreGeo = new THREE.SphereGeometry(0.48, 32, 32);
+      const coreMat = new THREE.MeshBasicMaterial({
+        color: 0xa855f7, transparent: true, opacity: 0.1,
+      });
+      gem.add(new THREE.Mesh(coreGeo, coreMat));
+
+      /* ── Orbiting Rings ── */
+      function makeRing(radius, tube, hexColor, rotX, rotZ, spd) {
+        const geo = new THREE.TorusGeometry(radius, tube, 20, 120);
+        const mat = new THREE.MeshBasicMaterial({
+          color: hexColor, transparent: true, opacity: 0.7,
+        });
+        const ring = new THREE.Mesh(geo, mat);
+        ring.rotation.set(rotX, 0, rotZ);
+        ring.userData.spd = spd;
+        scene.add(ring);
+        return ring;
+      }
+
+      const ring1 = makeRing(2.10, 0.009, 0xa855f7, Math.PI / 2, 0, 0.40);
+      const ring2 = makeRing(2.55, 0.007, 0x06b6d4, Math.PI / 3, Math.PI / 5.5, -0.28);
+      const ring3 = makeRing(3.00, 0.005, 0x10b981, Math.PI / 4, Math.PI / 4, 0.18);
+
+      /* ── Dashed inner ring (just points) ── */
+      const dashCount = 60;
+      const dR = 1.7;
+      const dPos = new Float32Array(dashCount * 3);
+      for (let i = 0; i < dashCount; i++) {
+        const a = (i / dashCount) * Math.PI * 2;
+        dPos[i * 3] = Math.cos(a) * dR;
+        dPos[i * 3 + 1] = 0;
+        dPos[i * 3 + 2] = Math.sin(a) * dR;
+      }
+      const dashGeo = new THREE.BufferGeometry();
+      dashGeo.setAttribute('position', new THREE.BufferAttribute(dPos, 3));
+      const dashMat = new THREE.PointsMaterial({ color: 0xf0abfc, size: 0.035, transparent: true, opacity: 0.9 });
+      const dashRing = new THREE.Points(dashGeo, dashMat);
+      dashRing.rotation.x = Math.PI / 2.5;
+      scene.add(dashRing);
+
+      /* ── Particles ── */
+      const PC = 1400;
+      const pPos = new Float32Array(PC * 3);
+      const pCol = new Float32Array(PC * 3);
+      const palette = [
+        new THREE.Color(0xa855f7),
+        new THREE.Color(0x06b6d4),
+        new THREE.Color(0x10b981),
+        new THREE.Color(0xffffff),
+        new THREE.Color(0xf0abfc),
+      ];
+      for (let i = 0; i < PC; i++) {
+        const r = 3.2 + Math.random() * 3.2;
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        pPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+        pPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+        pPos[i * 3 + 2] = r * Math.cos(phi);
+        const c = palette[Math.floor(Math.random() * palette.length)];
+        pCol[i * 3] = c.r; pCol[i * 3 + 1] = c.g; pCol[i * 3 + 2] = c.b;
+      }
+      const partGeo = new THREE.BufferGeometry();
+      partGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+      partGeo.setAttribute('color', new THREE.BufferAttribute(pCol, 3));
+      const partMat = new THREE.PointsMaterial({
+        size: 0.045, vertexColors: true, transparent: true, opacity: 0.85, sizeAttenuation: true,
+      });
+      const particles = new THREE.Points(partGeo, partMat);
+      scene.add(particles);
+
+      /* ── Satellite mini-gems ── */
+      function makeSat(size, dist, angle, hexCol, spd) {
+        const geo = new THREE.OctahedronGeometry(size, 0);
+        const mat = new THREE.MeshPhongMaterial({
+          color: hexCol, emissive: hexCol, emissiveIntensity: 0.6,
+          transparent: true, opacity: 0.95, shininess: 120,
+        });
+        const mesh = new THREE.Mesh(geo, mat);
+        const pivot = new THREE.Group();
+        pivot.add(mesh);
+        mesh.position.x = dist;
+        pivot.rotation.y = angle;
+        pivot.userData.spd = spd;
+        scene.add(pivot);
+        return { mesh, pivot };
+      }
+      const sats = [
+        makeSat(0.16, 2.05, 0, 0xa855f7, 1.20),
+        makeSat(0.11, 1.85, Math.PI * 0.65, 0x06b6d4, -0.85),
+        makeSat(0.13, 2.25, Math.PI * 1.25, 0x10b981, 1.05),
+        makeSat(0.09, 1.65, Math.PI * 1.72, 0xfbbf24, -1.45),
+        makeSat(0.07, 2.40, Math.PI * 0.35, 0xf0abfc, 0.70),
+      ];
+
+      /* ── Energy grid plane ── */
+      const gridGeo = new THREE.PlaneGeometry(10, 10, 24, 24);
+      const gridMat = new THREE.MeshBasicMaterial({
+        color: 0xa855f7, wireframe: true, transparent: true, opacity: 0.04,
+      });
+      const grid = new THREE.Mesh(gridGeo, gridMat);
+      grid.rotation.x = -Math.PI / 2;
+      grid.position.y = -2.8;
+      scene.add(grid);
+
+      /* ── Mouse ── */
+      const mouse = { x: 0, y: 0 };
+      const target = { x: 0, y: 0 };
+
+      function onMouseMove(e) {
+        mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouse.y = (e.clientY / window.innerHeight - 0.5) * 2;
+      }
+      function onTouchMove(e) {
+        if (!e.touches[0]) return;
+        mouse.x = (e.touches[0].clientX / window.innerWidth - 0.5) * 2;
+        mouse.y = (e.touches[0].clientY / window.innerHeight - 0.5) * 2;
+      }
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+      window.addEventListener('touchmove', onTouchMove, { passive: true });
+
+      /* Hide drag-hint after first interaction */
+      const hint = document.getElementById('drag-hint');
+      window.addEventListener('mousemove', () => {
+        if (hint) hint.style.opacity = '0';
+      }, { once: true });
+
+      /* ── Clock ── */
+      const clock = new THREE.Clock();
+
+      /* ── Animation Loop ── */
+      function animate() {
+        requestAnimationFrame(animate);
+        const t = clock.getElapsedTime();
+
+        /* Shader time */
+        holoMat.uniforms.uTime.value = t;
+
+        /* Smooth mouse follow */
+        target.x += (mouse.y * 0.45 - target.x) * 0.04;
+        target.y += (mouse.x * 0.45 - target.y) * 0.04;
+
+        /* Gem rotation */
+        gem.rotation.x = target.x + t * 0.09;
+        gem.rotation.y = target.y + t * 0.13;
+
+        /* Pulse scale */
+        const pulse = 1 + Math.sin(t * 1.6) * 0.018;
+        gem.scale.setScalar(pulse);
+
+        /* Rings */
+        ring1.rotation.y = t * ring1.userData.spd;
+        ring2.rotation.y = t * ring2.userData.spd;
+        ring3.rotation.y = t * ring3.userData.spd;
+        ring2.rotation.x = Math.PI / 3 + Math.sin(t * 0.28) * 0.09;
+        dashRing.rotation.y = t * 0.22;
+
+        /* Particles drift */
+        particles.rotation.y = t * 0.04;
+        particles.rotation.x = t * 0.025;
+
+        /* Satellites orbit */
+        sats.forEach(({ pivot, mesh }) => {
+          pivot.rotation.y += pivot.userData.spd * 0.01;
+          mesh.rotation.x = t * 1.6;
+          mesh.rotation.z = t * 1.1;
+        });
+
+        /* Animated lights */
+        pL1.position.x = Math.sin(t * 0.48) * 3;
+        pL1.position.y = Math.cos(t * 0.38) * 2;
+        pL2.position.x = Math.cos(t * 0.38) * 3;
+        pL2.position.y = Math.sin(t * 0.55) * 2;
+
+        /* Grid breathe */
+        gridMat.opacity = 0.03 + Math.sin(t * 0.5) * 0.02;
+
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    })();
+  </script>
+
+  <!-- Page behaviour -->
+  <script>
+    /* Hamburger */
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('nav-links');
+    hb.addEventListener('click', () => {
+      const open = nl.classList.toggle('open');
+      hb.classList.toggle('active', open);
+      hb.setAttribute('aria-expanded', open);
+    });
+    nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nl.classList.remove('open');
+      hb.classList.remove('active');
+      hb.setAttribute('aria-expanded', false);
+    }));
+
+    /* Sticky nav */
+    window.addEventListener('scroll', () =>
+      document.getElementById('navbar').classList.toggle('scrolled', scrollY > 20),
+      { passive: true });
+
+    /* Active link */
+    const sects = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sects.forEach(s => { if (scrollY >= s.offsetTop - 110) cur = s.id; });
+      document.querySelectorAll('.nav-link').forEach(l =>
+        l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+    }, { passive: true });
+
+    /* Scroll-reveal */
+    const io = new IntersectionObserver(entries =>
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+      { threshold: 0.12 });
+    document.querySelectorAll('.feature-card, .stat-item, .perk').forEach(el => io.observe(el));
+
+    /* Form submit */
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('form-submit');
+      btn.innerHTML = '<span>🎉 You\'re on the list!</span>';
+      btn.disabled = true;
+      btn.style.background = 'linear-gradient(135deg,#10b981,#059669)';
+    });
+  </script>
+
+</body>
+
+</html>
